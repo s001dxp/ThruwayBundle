@@ -121,10 +121,7 @@ class ThruwayProcessCommand extends ContainerAwareCommand
      */
     protected function start()
     {
-        $appCmd = "{$this->getContainer()->get('kernel')->getRootDir()}/console";
-        $binCmd = "{$this->getContainer()->get('kernel')->getRootDir()}/../bin/console";
-
-        $this->consoleCommand = file_exists($binCmd) ? $binCmd : $appCmd;
+	    $this->consoleCommand = "{$this->getContainer()->get('kernel')->getProjectDir()}/bin/console";
 
         if ($this->input->getArgument('worker')) {
             $this->startWorker($this->input->getArgument('worker'));
