@@ -163,6 +163,7 @@
 
         <service id="voryx.thruway.client.react_connector"
                  class="React\Socket\Connector"
+                 public="true"
                     >
                 <argument type="service" id="voryx.thruway.loop"/>
         </service>
