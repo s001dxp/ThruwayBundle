@@ -299,7 +299,7 @@ class ThruwayProcessCommand extends ContainerAwareCommand
 
             $this->output->writeln("Adding onetime Symfony worker: {$workerName}");
 
-            $cmd     = "{$phpBinary} {$this->consoleCommand} --env={$env} {$command}";
+            $cmd     = "{$this->consoleCommand} --env={$env} {$command}";
             $command = new Command($workerName, $cmd);
 
             $this->processManager->addCommand($command);
@@ -348,7 +348,7 @@ class ThruwayProcessCommand extends ContainerAwareCommand
 
             $workerAnnotation = $resourceMapper->getWorkerAnnotation($workerName);
             $numprocs         = $workerAnnotation ? $workerAnnotation->getMaxProcesses() : 1;
-            $cmd              = "{$phpBinary} {$this->consoleCommand} --env={$env} thruway:worker:start {$workerName} 0";
+            $cmd              = "{$this->consoleCommand} --env={$env} thruway:worker:start {$workerName} 0";
             $command          = new Command($workerName, $cmd);
 
             $command->setMaxInstances($numprocs);
