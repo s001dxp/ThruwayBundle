@@ -28,7 +28,7 @@ class ClientManager
 
     /** @var Serializer */
     private $serializer;
-    
+
     /** @var ConnectorInterface */
     private $connector;
 
@@ -152,7 +152,7 @@ class ClientManager
     {
         $client = new Client($this->config['realm']);
         $client->setAttemptRetry(false);
-        $client->addTransportProvider(new PawlTransportProvider($this->config['trusted_url'], $this->connector));
+        $client->addTransportProvider(new PawlTransportProvider($this->config['trusted_url']));
 
         return $client;
     }
